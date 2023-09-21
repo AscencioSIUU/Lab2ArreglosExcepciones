@@ -1,7 +1,7 @@
 # Forma De Trabajo
 
 
-SuperClass Archivo Principal, ChildClass en mismo archivo (Sujeto a cambio)
+SuperClass Archivo Principal, En otro archivo con el nombre de la super class en el(Sujeto a cambio)
 
 ## Personas Vista:
 
@@ -16,6 +16,8 @@ Xavi
 ## Modelo:
 
 Pedro
+
+## IMPORTANTISIMO: Les voy a mandar masomenos que tan ordenado tiene que ir
 
 
 ### Cualquier Cosa Preguntenme o solo busquen tutorial en google :D, putos.
