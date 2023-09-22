@@ -1,8 +1,9 @@
+package UI;
 import BasicObjects.Evento;
 import BasicObjects.Recinto;
-import Utilities.AssignEventToRecinto;
-import Utilities.EventosSearcher;
-import Utilities.RecintoSearcher;
+import Utilities.Assigner;
+import Utilities.Seachers.EventosSearcher;
+import Utilities.Seachers.RecintoSearcher;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -14,13 +15,29 @@ public class MainMenu {
         EventosSearcher eventosSearcher = new EventosSearcher();
         RecintoSearcher recintoSearcher = new RecintoSearcher();
 
-        // Cargar datos desde CSV
-        eventosSearcher.loadEventosFromCSV("eventos.csv");
-        recintoSearcher.loadRecintosFromCSV("recintos.csv");
+        // TODO: Cargar archivos pero con los FileReaders PORQUE LMAO
+        eventosSearcher.loadFile("eventos.csv");
+        recintoSearcher.loadFile("recintos.csv");
 
         Scanner scanner = new Scanner(System.in);
+        // YEP :D
 
         while (true) {
+            // TODO: Corregir en la mayoria
+            /*
+             * TODO: Mostrar el menú principal
+             * Necesita esto
+             * 1. Agregar evento (Este va a un recinto y pide una confirmacion por medio del assigner)
+             * 2. Agregar Recinto.
+             * #Usar los Searchers para meter los recintos y cosas ahi
+             * 3. poner una opcion para poder llamar a ShowerInforme.
+             * 4. poner una opcion para poder llamar a ShowerInforme. (showers ernesto)
+             * 5. Guarda La info.
+             * y ya, solo, el resto que lo haga ernesto, mas que todo solo llama funciones aca
+             * no hagas nada nuevis, solo llamarlas :D
+             * 
+             * Holis :D
+             */
             System.out.println("Menú Principal:");
             System.out.println("1. Asignar eventos a recintos");
             System.out.println("2. Generar informe");
@@ -35,7 +52,7 @@ public class MainMenu {
                     // Asignar eventos a recintos
                     System.out.println("Asignación de eventos a recintos:");
                     for (Evento evento : eventosSearcher.eventos) {
-                        boolean asignado = AssignEventToRecinto.AssignEventoToRecinto(evento, recintoSearcher.recintos);
+                        boolean asignado = Assigner.AssignEventoToRecinto(evento, );
                         if (asignado) {
                             System.out.println("Evento " + evento.id_evento + " asignado al recinto.");
                         } else {
@@ -73,19 +90,6 @@ public class MainMenu {
                 default:
                     System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
             }
-        }
-    }
-
-    // Método para exportar el resultado
-    private static void exportarResultado(String nombreArchivo, List<Evento> eventosAsignados) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(nombreArchivo))) {
-            for (Evento evento : eventosAsignados) {
-                writer.println("Evento: " + evento.Artista);
-                writer.println("Recinto: " + evento.id_recinto);
-                writer.println();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }
