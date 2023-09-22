@@ -3,7 +3,7 @@
 
 SuperClass Archivo Principal, En otro archivo con el nombre de la super class en el(Sujeto a cambio)
 
-## Personas Vista:
+## Vista:
 
 Benitez
 Ernesto
