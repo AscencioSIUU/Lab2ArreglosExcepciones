@@ -20,4 +20,4 @@ Pedro
 ## IMPORTANTISIMO: Les voy a mandar masomenos que tan ordenado tiene que ir y solo pull requests :D
 
 
-### Cualquier Cosa Preguntenme o solo busquen tutorial en google :D, putos.
+### Cualquier Cosa Preguntenme o solo busquen tutorial en google :D.
