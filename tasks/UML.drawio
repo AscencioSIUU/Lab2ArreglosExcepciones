@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="LMAcXqEybswluzc5cnRF" name="Page-1">
-        <mxGraphModel dx="2032" dy="1879" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="4227" dy="3326" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -142,7 +142,7 @@
                 <mxCell id="72" value="operations" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="71" vertex="1">
                     <mxGeometry y="172" width="220" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="73" value="&lt;u&gt;LoadFile():void&lt;br&gt;&lt;/u&gt;&lt;u&gt;SaveFile&lt;/u&gt;&lt;u&gt;(Recintos):void&lt;br&gt;&lt;/u&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="71" vertex="1">
+                <mxCell id="73" value="&lt;u&gt;LoadFile(&lt;/u&gt;&lt;u&gt;Evento&lt;/u&gt;&lt;u&gt;Searcher&lt;/u&gt;&lt;u&gt;&lt;br&gt;):void&lt;br&gt;&lt;/u&gt;&lt;u&gt;SaveFile&lt;/u&gt;&lt;u&gt;(&lt;/u&gt;&lt;u&gt;Evento&lt;/u&gt;&lt;u&gt;Searcher&lt;/u&gt;&lt;u&gt;):void&lt;br&gt;&lt;/u&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="71" vertex="1">
                     <mxGeometry y="192" width="220" height="97" as="geometry"/>
                 </mxCell>
                 <mxCell id="83" style="edgeStyle=none;html=1;entryX=0.416;entryY=0.02;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#FFFFFF;endArrow=none;endFill=0;" parent="1" source="78" target="82" edge="1">
