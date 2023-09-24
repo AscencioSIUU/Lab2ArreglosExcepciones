@@ -10,18 +10,17 @@ import BasicObjects.Recinto;
 import Utilities.Seachers.RecintoSearcher;
 
 public class FileReaderRecinto {
-    public void loadFile() throws IOException{
+    public static void loadFile(RecintoSearcher Recintos) throws IOException{
         BufferedReader csvReader = new BufferedReader(new FileReader("src/DB/Recintos.csv"));
 
         for (String row; (row = csvReader.readLine()) != null;) {
             String[] data = row.split(",");
-            RecintoSearcher recintoSearcher = new RecintoSearcher();
-            recintoSearcher.CreateObjects(data);
+            Recintos.CreateObjects(data);
         }
         csvReader.close();
     }
 
-    public void SaveFile(RecintoSearcher searchers) throws IOException{
+    public static void SaveFile(RecintoSearcher searchers) throws IOException{
         FileWriter csvWriter = new FileWriter("src/DB/Recintos.csv");
         List<Recinto> recintos = searchers.recintos;
         for(Recinto recinto : recintos){

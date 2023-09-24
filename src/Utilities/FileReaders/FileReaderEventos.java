@@ -5,23 +5,22 @@ import java.io.IOException;
 import java.util.List;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import Utilities.Seachers.*;
+import Utilities.Seachers.EventosSearcher;
 
 public class FileReaderEventos{
     
 
-    public void loadFile() throws IOException{
+    public static void loadFile(EventosSearcher Eventos) throws IOException{
         BufferedReader csvReader = new BufferedReader(new FileReader("src/DB/Eventos.csv"));
 
         for (String row; (row = csvReader.readLine()) != null;) {
             String[] data = row.split(",");
-            EventosSearcher eventoSearcher = new EventosSearcher();
-            eventoSearcher.CreateObjects(data);
+            Eventos.CreateObjects(data);
         }
         csvReader.close();
     }
 
-    public void SaveFile(EventosSearcher searchers) throws IOException{
+    public static  void SaveFile(EventosSearcher searchers) throws IOException{
         FileWriter csvWriter = new FileWriter("src/DB/Eventos.csv");
         List<Evento> eventos = searchers.eventos;
         for(Evento evento : eventos){

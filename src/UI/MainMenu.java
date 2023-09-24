@@ -2,6 +2,8 @@ package UI;
 import BasicObjects.Evento;
 import BasicObjects.Recinto;
 import Utilities.Assigner;
+import Utilities.FileReaders.FileReaderEventos;
+import Utilities.FileReaders.FileReaderRecinto;
 import Utilities.Seachers.EventosSearcher;
 import Utilities.Seachers.RecintoSearcher;
 
@@ -11,16 +13,22 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MainMenu {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         EventosSearcher eventosSearcher = new EventosSearcher();
         RecintoSearcher recintoSearcher = new RecintoSearcher();
+        
+        FileReaderRecinto.loadFile(recintoSearcher);
+        FileReaderEventos.loadFile(eventosSearcher);
 
+        for (Evento evento : eventosSearcher.eventos) {
+            for (Recinto recinto : recintoSearcher.recintos) {
+                Assigner.AssignEventoToRecinto(evento, recinto);
+            }
+        }
+        
         // TODO: Cargar archivos pero con los FileReaders PORQUE LMAO
-        eventosSearcher.loadFile("eventos.csv");
-        recintoSearcher.loadFile("recintos.csv");
 
         Scanner scanner = new Scanner(System.in);
-        // YEP :D
 
         while (true) {
             // TODO: Corregir en la mayoria
@@ -51,35 +59,19 @@ public class MainMenu {
                 case 1:
                     // Asignar eventos a recintos
                     System.out.println("Asignación de eventos a recintos:");
-                    for (Evento evento : eventosSearcher.eventos) {
-                        boolean asignado = Assigner.AssignEventoToRecinto(evento, );
-                        if (asignado) {
-                            System.out.println("Evento " + evento.id_evento + " asignado al recinto.");
-                        } else {
-                            System.out.println("No se pudo asignar recinto para el evento " + evento.id_evento + ".");
-                        }
-                    }
                     break;
                 case 2:
                     // Generar informe
                     System.out.println("\nInforme:");
                     System.out.println("1. Listado de eventos que no se les pudo asignar recinto:");
-                    List<Evento> eventosSinAsignar = AssignEventToRecinto.GetEventosSinAsignar(eventosSearcher.eventos);
-                    for (Evento evento : eventosSinAsignar) {
-                        System.out.println("Evento " + evento.id_evento + ": " + evento.Artista);
-                    }
 
                     System.out.println("\n2. Listado de eventos a los que sí se les pudo asignar recinto:");
-                    List<Evento> eventosAsignados = AssignEventToRecinto.GetEventosAsignados(eventosSearcher.eventos);
-                    for (Evento evento : eventosAsignados) {
-                        System.out.println("Evento " + evento.id_evento + ": " + evento.Artista);
-                    }
+
 
                     // Exportar resultado
                     System.out.println("\n3. Exportar resultado:");
                     System.out.print("Ingrese el nombre del archivo de exportación: ");
                     String nombreArchivo = scanner.nextLine();
-                    exportarResultado(nombreArchivo, eventosAsignados);
                     System.out.println("Resultado exportado correctamente.");
                     break;
                 case 3:
