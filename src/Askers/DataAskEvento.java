@@ -2,16 +2,17 @@
 package Askers;
 import java.util.Scanner;
 import BasicObjects.Evento;
-
+import java.util.ArrayList;
 public class DataAskEvento {
-    public static Evento ingresarDatosEvento(Scanner scanner) {
+    public static void DataAsk(ArrayList<Evento> eventos) {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Por favor, ingrese los siguientes datos para crear un evento:");
 
         System.out.print("ID del evento: ");
-        int id_evento = scanner.nextInt();
+        String id_evento = scanner.nextLine();
 
         System.out.print("ID del recinto: ");
-        int id_recinto = scanner.nextInt();
+        String id_recinto = scanner.nextLine();
         scanner.nextLine(); 
 
         System.out.print("Artista: ");
@@ -24,12 +25,14 @@ public class DataAskEvento {
         String hora = scanner.nextLine();
 
         System.out.print("Duración (en minutos): ");
-        int duracion = scanner.nextInt();
+        String duracion = scanner.nextLine();
 
         System.out.print("Cantidad de asistentes: ");
-        int cantidad_Asistentes = scanner.nextInt();
+        String cantidad_Asistentes = scanner.nextLine();
 
-        return null; // Cambia esto para devolver el objeto Evento adecuado
+        eventos.add(new Evento(id_evento, id_recinto, artista, fecha, hora, duracion, cantidad_Asistentes));
+
     }
+
 }
        

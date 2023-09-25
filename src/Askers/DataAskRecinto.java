@@ -1,8 +1,12 @@
 package Askers;
 import java.util.Scanner;
 
+import javax.xml.crypto.Data;
+import java.util.ArrayList;
+import BasicObjects.*;
+
 public class DataAskRecinto {
-    public static void CrearRecintos() {
+    public static void DataAsk(ArrayList<Recinto> recintos, ArrayList<Evento> eventos) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Por favor, ingrese los siguientes datos para crear un recinto:");
@@ -11,17 +15,17 @@ public class DataAskRecinto {
         String nombre = scanner.nextLine();
 
         System.out.print("ID del país: ");
-        int id_pais = scanner.nextInt();
+        String id_pais = scanner.nextLine();
 
         System.out.print("ID del recinto: ");
-        int id_recinto = scanner.nextInt();
+        String id_recinto = scanner.nextLine();
         scanner.nextLine(); 
 
         System.out.print("Dirección: ");
         String direccion = scanner.nextLine();
 
         System.out.print("Capacidad: ");
-        int capacidad = scanner.nextInt();
+        String capacidad = scanner.nextLine();
 
         
 
@@ -31,7 +35,7 @@ public class DataAskRecinto {
             String respuesta = scanner.next().toLowerCase();
 
             if (respuesta.equals("s")) {
-                DataAskEvento.ingresarDatosEvento(scanner);
+                DataAskEvento.DataAsk(eventos);
                
             } else if (respuesta.equals("n")) {
                 break;
@@ -39,5 +43,7 @@ public class DataAskRecinto {
                 System.out.println("Respuesta inválida. Por favor, ingrese 'S' para agregar un evento o 'N' para salir.");
             }
         }
+
+        recintos.add(new Recinto(nombre, id_pais, id_recinto, direccion, capacidad));
     }
 }
