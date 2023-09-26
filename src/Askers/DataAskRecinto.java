@@ -1,11 +1,10 @@
 package Askers;
 import java.util.Scanner;
-
-import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import BasicObjects.*;
 
 public class DataAskRecinto {
+
     public static void DataAsk(ArrayList<Recinto> recintos, ArrayList<Evento> eventos) {
         Scanner scanner = new Scanner(System.in);
 
@@ -19,15 +18,24 @@ public class DataAskRecinto {
 
         System.out.print("ID del recinto: ");
         String id_recinto = scanner.nextLine();
-        scanner.nextLine(); 
 
         System.out.print("Dirección: ");
         String direccion = scanner.nextLine();
 
-        System.out.print("Capacidad: ");
-        String capacidad = scanner.nextLine();
+        String capacidad = "";
 
-        
+
+        // Solicitar la capacidad hasta que se ingrese un valor válido
+        while (true) {
+            System.out.print("Capacidad: ");
+            capacidad = scanner.nextLine();
+
+            if (esNumero(capacidad)) {
+                break; // Salir del bucle si se ingresó un valor válido
+            } else {
+                System.out.println("La capacidad debe ser un número entero válido. Intente nuevamente.");
+            }
+        }
 
         // Solicitar al usuario agregar eventos al recinto
         while (true) {
@@ -36,7 +44,6 @@ public class DataAskRecinto {
 
             if (respuesta.equals("s")) {
                 DataAskEvento.DataAsk(eventos);
-               
             } else if (respuesta.equals("n")) {
                 break;
             } else {
@@ -44,6 +51,16 @@ public class DataAskRecinto {
             }
         }
 
-        recintos.add(new Recinto(nombre, id_pais, id_recinto, direccion, capacidad));
+        recintos.add(new Recinto(id_pais, id_recinto, capacidad, nombre, direccion)); 
+    }
+
+    // Función para validar si una cadena es un número válido
+    public static boolean esNumero(String cadena) {
+        try {
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

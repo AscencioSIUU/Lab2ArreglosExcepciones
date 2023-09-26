@@ -1,104 +1,79 @@
 package UI;
 
-import BasicObjects.Evento;
-import BasicObjects.Recinto;
-import Utilities.Assigner;
 import Utilities.FileReaders.FileReaderEventos;
 import Utilities.FileReaders.FileReaderRecinto;
 import Utilities.Seachers.EventosSearcher;
 import Utilities.Seachers.RecintoSearcher;
-import Utilities.Shower.ShowerEventos;
-import Utilities.Shower.ShowerRecintos;
+import BasicObjects.Evento;
+import BasicObjects.Recinto;
+import Askers.DataAskEvento;
+import Askers.DataAskRecinto;
 
-import java.io.*;
+
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainMenu {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        // Listas para almacenar eventos y recintos
+        ArrayList<Evento> eventos = new ArrayList<>();
+        ArrayList<Recinto> recintos = new ArrayList<>();
+
+        // Objeto para realizar búsquedas de eventos y recintos
         EventosSearcher eventosSearcher = new EventosSearcher();
         RecintoSearcher recintoSearcher = new RecintoSearcher();
 
-        FileReaderRecinto.loadFile(recintoSearcher);
-        FileReaderEventos.loadFile(eventosSearcher);
-
-        for (Evento evento : eventosSearcher.eventos) {
-            for (Recinto recinto : recintoSearcher.recintos) {
-                Assigner.AssignEventoToRecinto(evento, recinto);
-            }
-        }
-
-        /* Cargar archivos pero con los FileReaders PORQUE LMAO */
-
+        // Scanner para la entrada del usuario
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-
-            /*
-             * Mostrar el menú principal
-             * Necesita esto
-             * 1. Agregar evento (Este va a un recinto y pide una confirmacion por medio del
-             * assigner)
-             * 2. Agregar Recinto.
-             * #Usar los Searchers para meter los recintos y cosas ahi
-             * 3. poner una opcion para poder llamar a ShowerInforme.
-             * 4. poner una opcion para poder llamar a ShowerInforme. (showers ernesto)
-             * 5. Guarda La info.
-             * y ya, solo, el resto que lo haga ernesto, mas que todo solo llama funciones
-             * aca
-             * no hagas nada nuevis, solo llamarlas :D
-             * 
-             * Holis :D
-             */
             System.out.println("Menú Principal:");
-            System.out.println("1. Asignar eventos a recintos");
-            System.out.println("2. Generar informe");
-            System.out.println("3. Salir");
+            System.out.println("1. Agregar evento");
+            System.out.println("2. Agregar Recinto");
+            System.out.println("3. Generar informe de eventos");
+            System.out.println("4. Generar informe de recintos");
+            System.out.println("5. Salir");
             System.out.print("Seleccione una opción: ");
 
-            // IMPORTANT, For flushin System.out.flush();
             int opcion = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); // Consumir la nueva línea
 
             switch (opcion) {
                 case 1:
-                    // Asignar eventos a recintos
-                    System.out.println("Asignación de eventos a recintos:");
-                    System.out.flush();
+                    // Agregar evento
+                    DataAskEvento.DataAsk(eventos);
                     break;
                 case 2:
-                    // Generar informe
-                    System.out.println("\nInforme:");
-                    // de esta forma se muestra los showerRecintos
-                    /*
-                     * ShowerRecintos recinto = new ShowerRecintos();
-                     * recinto.ShowInformation();
-                     */
-
-                    // de esta forma se muestra los showerEventos
-                    /*
-                     * ShowerEventos evento = new ShowerEventos();
-                     * evento.ShowInformation();
-                     */
-
-                    System.out.println("1. Listado de eventos que no se les pudo asignar recinto:");
-
-                    System.out.println("\n2. Listado de eventos a los que sí se les pudo asignar recinto:");
-
-                    // Exportar resultado
-                    System.out.println("\n3. Exportar resultado:");
-                    System.out.print("Ingrese el nombre del archivo de exportación: ");
-                    String nombreArchivo = scanner.nextLine();
-                    System.out.println("Resultado exportado correctamente.");
-                    System.out.flush();
+                    // Agregar Recinto
+                    DataAskRecinto.DataAsk(recintos, eventos);
                     break;
                 case 3:
+                    // Generar informe de eventos
+                    try {
+                        FileReaderEventos.loadFile(eventosSearcher);
+                        new ShowerEventos().ShowInformation();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 4:
+                    // Generar informe de recintos
+                    try {
+                        FileReaderRecinto.loadFile(recintoSearcher);
+                        new ShowerRecintos().ShowInformation();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 5:
                     // Salir del programa
                     System.out.println("Saliendo del programa.");
-                    scanner.close();
                     System.exit(0);
                 default:
                     System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
+                    break;
             }
         }
     }

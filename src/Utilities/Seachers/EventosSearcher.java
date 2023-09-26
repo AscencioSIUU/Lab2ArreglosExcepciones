@@ -14,7 +14,7 @@ public class EventosSearcher extends Searcher {
                 return evento;
             }
         }
-        return null; // add this line to handle the case where no Evento is found
+        return null; 
     }
 
     @Override
