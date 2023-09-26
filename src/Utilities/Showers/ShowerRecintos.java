@@ -19,4 +19,19 @@ public class ShowerRecintos {
                 recinto.nombre, recinto.id_pais, recinto.id_recinto, recinto.direccion, recinto.capacidad);
         }
     }
+
+    public void ShowRecintoInfoByID(int id) {
+        for (Recinto recinto : recintos) {
+            if (recinto.id_recinto == id) {
+                System.out.println("Información del Recinto con ID " + id + ":");
+                System.out.println("Nombre del Recinto: " + recinto.nombre);
+                System.out.println("ID del País: " + recinto.id_pais);
+                System.out.println("ID del Recinto: " + recinto.id_recinto);
+                System.out.println("Dirección: " + recinto.direccion);
+                System.out.println("Capacidad: " + recinto.capacidad);
+                return;
+            }
+        }
+        System.out.println("Recinto con ID " + id + " no encontrado.");
+    }
 }

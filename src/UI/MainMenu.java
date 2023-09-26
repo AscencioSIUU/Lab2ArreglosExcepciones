@@ -13,6 +13,7 @@ import Utilities.Showers.ShowerRecintos;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainMenu {
@@ -50,19 +51,37 @@ public class MainMenu {
                     DataAskRecinto.DataAsk(recintos, eventos);
                     break;
                 case 3:
-                    // Generar informe de eventos
-                    try {
-                        FileReaderEventos.loadFile(eventosSearcher);
-                        new ShowerEventos(eventos).ShowInformation();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    // Generar informe de eventos por ID
+                    System.out.print("Ingrese el ID del evento que desea buscar: ");
+                    int idEventoBuscado = scanner.nextInt();
+                    scanner.nextLine(); // Consumir la nueva línea
+
+                    boolean encontrado = false;
+                    for (Evento evento : eventos) {
+                        if (evento.id_evento == idEventoBuscado) {
+                            new ShowerEventos(List.of(evento)).ShowInformation(); // Muestra solo el evento encontrado
+                            encontrado = true;
+                            break; // Salir del bucle si se encuentra el evento
+                        }
+                    }
+
+                    if (!encontrado) {
+                        System.out.println("Evento no encontrado con el ID proporcionado.");
                     }
                     break;
                     case 4:
                     // Generar informe de recintos
                     try {
                         FileReaderRecinto.loadFile(recintoSearcher);
-                        new ShowerRecintos(recintoSearcher.recintos).ShowInformation();
+                        new ShowerRecintos(recintos).ShowInformation();
+                
+                        // Solicitar al usuario que introduzca el ID del recinto a buscar
+                        Scanner inputScanner = new Scanner(System.in);
+                        System.out.print("Introduce el ID del recinto a buscar: ");
+                        int idRecintoBuscado = inputScanner.nextInt();
+                
+                        // Llamar al método para mostrar información del recinto por ID
+                        new ShowerRecintos(recintos).ShowRecintoInfoByID(idRecintoBuscado);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
