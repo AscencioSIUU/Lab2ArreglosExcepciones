@@ -1,1 +1,6 @@
-101,201,Artista1,2023/10/15,18:00,120,500
+ID del Evento,ID del Recinto,Artista,Fecha,Hora,Duración,Cantidad de Asistentes
+E001,R001,Artista1,2023/10/15,18:00,120,500
+E002,R002,Artista2,2023/11/20,20:30,90,300
+E003,R003,Artista3,2023/12/05,19:15,150,800
+E004,R001,Artista4,2023/11/10,17:45,105,400
+E005,R002,Artista5,2023/12/20,21:00,120,600
