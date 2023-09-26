@@ -1,6 +1,5 @@
 package UI;
 
-import Utilities.FileReaders.FileReaderEventos;
 import Utilities.FileReaders.FileReaderRecinto;
 import Utilities.Seachers.EventosSearcher;
 import Utilities.Seachers.RecintoSearcher;

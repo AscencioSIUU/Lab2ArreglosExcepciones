@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="LMAcXqEybswluzc5cnRF" name="Page-1">
-        <mxGraphModel dx="2281" dy="2042" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="3214" dy="2122" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -126,15 +126,6 @@
                 <mxCell id="82" value="&lt;div&gt;Después de asignar los recintos el programa mostrará la opción de ver el informe, en donde&lt;/div&gt;&lt;div&gt;desplegará:&lt;/div&gt;&lt;div&gt;1. Listado de eventos que no se les pudo asignar recinto.&lt;/div&gt;&lt;div&gt;2. Listado de eventos a los que sí se les pudo asignar recinto.&lt;/div&gt;&lt;div&gt;3. Exportar resultado: Se podrá exportar un archivo, en donde se encuentre la relación recinto&lt;/div&gt;&lt;div&gt;– evento, el formato de este archivo usted deberá definirlo.&lt;/div&gt;" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="160" y="1800" width="245" height="250" as="geometry"/>
                 </mxCell>
-                <mxCell id="84" value="&amp;lt;&amp;lt;SuperClassGUI&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;DataAsk&lt;br&gt;&lt;/b&gt;{abstract}" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=55;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="1" vertex="1">
-                    <mxGeometry x="1780" y="70" width="220" height="172" as="geometry"/>
-                </mxCell>
-                <mxCell id="85" value="operations" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="84" vertex="1">
-                    <mxGeometry y="55" width="220" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="86" value="&lt;u&gt;DataAsk():void&lt;br&gt;&lt;/u&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="84" vertex="1">
-                    <mxGeometry y="75" width="220" height="97" as="geometry"/>
-                </mxCell>
                 <mxCell id="165" style="edgeStyle=none;html=1;entryX=0.515;entryY=0.97;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=diamondThin;endFill=1;" parent="1" source="68" target="140" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
@@ -157,9 +148,6 @@
                 </mxCell>
                 <mxCell id="70" value="&lt;u&gt;LoadFile(&lt;/u&gt;&lt;u&gt;Evento&lt;/u&gt;&lt;u&gt;Searcher&lt;/u&gt;&lt;u&gt;&lt;br&gt;):void&lt;br&gt;&lt;/u&gt;&lt;u&gt;SaveFile&lt;/u&gt;&lt;u&gt;(Evento&lt;/u&gt;&lt;u&gt;Searcher&lt;/u&gt;&lt;u&gt;):void&lt;br&gt;&lt;/u&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="68" vertex="1">
                     <mxGeometry y="192" width="220" height="97" as="geometry"/>
-                </mxCell>
-                <mxCell id="120" style="edgeStyle=none;html=1;entryX=0.038;entryY=0.996;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="100" target="86" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="170" style="edgeStyle=none;html=1;endArrow=block;endFill=1;" parent="1" source="100" edge="1">
                     <mxGeometry relative="1" as="geometry">
@@ -185,11 +173,6 @@
                 </mxCell>
                 <mxCell id="103" value="Para Constructor" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="1870" y="530" width="120" height="90" as="geometry"/>
-                </mxCell>
-                <mxCell id="121" style="edgeStyle=none;html=1;" parent="1" source="104" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="2000" y="250" as="targetPoint"/>
-                    </mxGeometry>
                 </mxCell>
                 <mxCell id="104" value="&amp;lt;&amp;lt;DataAskRecinto&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;DataAsk&lt;br&gt;&lt;/b&gt;{abstract}" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=55;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" parent="1" vertex="1">
                     <mxGeometry x="1940" y="290" width="220" height="172" as="geometry"/>
@@ -285,11 +268,12 @@
                 <mxCell id="163" style="edgeStyle=none;html=1;dashed=1;" parent="1" source="148" target="151" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="166" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=diamondThin;endFill=1;" parent="1" source="148" target="84" edge="1">
+                <mxCell id="166" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=diamondThin;endFill=1;" parent="1" source="148" target="100" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="1890" y="-120"/>
                         </Array>
+                        <mxPoint x="1890" y="70" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="167" style="edgeStyle=none;html=1;endArrow=diamondThin;endFill=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="148" target="111" edge="1">
@@ -306,6 +290,13 @@
                 <mxCell id="169" value="Generallizacion de dependencia" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="167" vertex="1" connectable="0">
                     <mxGeometry x="0.5007" y="-2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="HpbAWF89yJubMcbABGME-180" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="148" target="104">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="2120" y="-120"/>
+                        </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="148" value="&amp;lt;&amp;lt;SuperClass&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Objecto&lt;br&gt;&lt;/b&gt;{abstract}" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=55;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="1" vertex="1">
@@ -347,14 +338,6 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-            </root>
-        </mxGraphModel>
-    </diagram>
-    <diagram id="rLbm2qGMo2lSU_R8sRgO" name="Page-2">
-        <mxGraphModel dx="464" dy="1039" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
-            <root>
-                <mxCell id="0"/>
-                <mxCell id="1" parent="0"/>
             </root>
         </mxGraphModel>
     </diagram>
