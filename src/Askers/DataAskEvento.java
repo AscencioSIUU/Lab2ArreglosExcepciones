@@ -2,6 +2,7 @@ package Askers;
 import java.util.Scanner;
 import java.util.ArrayList;
 import BasicObjects.Evento;
+import Utilities.FileReaders.FileSaver;
 
 
 
@@ -45,6 +46,6 @@ public class DataAskEvento {
         String cantidad_Asistentes = scanner.nextLine();
 
         eventos.add(new Evento(id_evento, id_recinto, artista, fecha, hora, duracion, cantidad_Asistentes));
-
+        FileSaver.SaveEventosToFile(eventos);
     }
 }

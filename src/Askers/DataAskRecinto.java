@@ -2,6 +2,7 @@ package Askers;
 import java.util.Scanner;
 import java.util.ArrayList;
 import BasicObjects.*;
+import Utilities.FileReaders.FileSaver;
 
 public class DataAskRecinto {
 
@@ -52,6 +53,7 @@ public class DataAskRecinto {
         }
 
         recintos.add(new Recinto(id_pais, id_recinto, capacidad, nombre, direccion)); 
+        FileSaver.SaveRecintosToFile(recintos);
     }
 
     // Función para validar si una cadena es un número válido

@@ -8,8 +8,8 @@ import BasicObjects.Evento;
 import BasicObjects.Recinto;
 import Askers.DataAskEvento;
 import Askers.DataAskRecinto;
-
-
+import Utilities.Showers.ShowerEventos;
+import Utilities.Showers.ShowerRecintos;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,16 +53,16 @@ public class MainMenu {
                     // Generar informe de eventos
                     try {
                         FileReaderEventos.loadFile(eventosSearcher);
-                        new ShowerEventos().ShowInformation();
+                        new ShowerEventos(eventos).ShowInformation();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                     break;
-                case 4:
+                    case 4:
                     // Generar informe de recintos
                     try {
                         FileReaderRecinto.loadFile(recintoSearcher);
-                        new ShowerRecintos().ShowInformation();
+                        new ShowerRecintos(recintoSearcher.recintos).ShowInformation();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -77,4 +77,5 @@ public class MainMenu {
             }
         }
     }
+    
 }
